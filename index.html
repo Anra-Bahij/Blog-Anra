@@ -107,38 +107,6 @@
       margin-bottom: 25px;
       text-align: justify;
     }
-    .read-more {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 18px;
-      background: #2c3e50;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9em;
-      transition: background 0.3s ease;
-    }
-    .read-more:hover { background: #1abc9c; }
-
-    #contact h2 { margin-bottom: 15px; }
-    #contact a {
-      color: blue;
-      text-decoration: underline;
-      transition: color 0.3s ease;
-    }
-    #contact a:hover { color: darkblue; }
-    #contact p {
-      margin: 5px 0;
-    }
-
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      margin-top: auto;
-    }
     .button {
       display: block;
       width: 150px;
@@ -156,11 +124,92 @@
       background-color: #45a049;
       transform: scale(1.05);
     }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      margin-top: auto;
+    }
+
+    /* 🔹 Kontak Modern */
+    .contact-section {
+      text-align: center;
+      margin: 40px auto;
+    }
+    .contact-section h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #1a2b48;
+    }
+    .chat-card {
+      background: #0f172a;
+      color: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 500px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .chat-logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+    .chat-header h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+    .chat-header p {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin: 2px 0;
+    }
+    .status {
+      color: #22c55e;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+    .chat-body p {
+      margin: 3px 0;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+    .fast { color: #22c55e; }
+    .medium { color: #eab308; }
+    .active { color: #22c55e; }
+    .chat-btn {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .chat-btn.telegram { background: #3b82f6; }
+    .chat-btn.telegram:hover { background: #1d4ed8; }
+    .chat-btn.whatsapp { background: #22c55e; }
+    .chat-btn.whatsapp:hover { background: #16a34a; }
+    .chat-btn.email { background: #ea4335; }
+    .chat-btn.email:hover { background: #c53030; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Blog Kepribadian Diriku</h1>
+    <h1>Portofoilo Pribadi</h1>
     <p>Mengenal lebih dekat tentang diriku</p>
   </header>
 
@@ -168,7 +217,7 @@
   <div class="profile">
     <img src="https://files.catbox.moe/is1ybz.jpg" alt="Foto Penulis">
     <h3>Anra Syauqiy Bahij</h3>
-    <p id="countdown"></p> <!-- 🔹 Countdown muncul di sini -->
+    <p id="countdown"></p>
   </div>
 
   <!-- NAVIGASI -->
@@ -193,7 +242,6 @@
         Senang sekali rasanya bisa berkenalan dengan banyak orang dan berbagi cerita 
         perjalanan saya.
       </p>
-
       <p>
         Riwayat pendidikan saya dimulai dari TK Guidance School, di mana saya pertama 
         kali belajar mengenal dunia sekolah. Setelah itu, saya melanjutkan pendidikan 
@@ -214,14 +262,58 @@
       <a href="tes.html" class="button">Click Here</a>
     </div>
 
-    <!-- 🔹 Kontak -->
-    <section id="contact" class="card" data-aos="fade-up">
-      <div class="text-center">
-        <h2>📩 Kontak Saya</h2>
-        <p>Email: <a href="mailto:anrasyauqiybahij@gmail.com">anrasyauqiybahij@gmail.com</a></p>
-        <p>Sosmed: <a href="https://www.tiktok.com/@anrasyauqiybahij26?_t=ZS-8vuLMn9sjIt&_r=1" target="_blank">Tiktok</a></p>
-        <p>WhatsApp: <a href="https://wa.me/6287722011556" target="_blank">Chat Me</a></p>
+    <!-- 🔹 Kontak Modern -->
+    <section class="contact-section">
+      <h2>📩 My Contact</h2>
+      
+      <!-- Telegram -->
+      <div class="chat-card">
+        <div class="chat-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="chat-logo">
+          <div>
+            <h3>Telegram <span class="status">● Online</span></h3>
+            <p>Direct messaging</p>
+          </div>
+        </div>
+        <div class="chat-body">
+          <p><strong>Response Time:</strong> <span class="fast">&lt; 10 - 30 min</span></p>
+          <p><strong>Last Active:</strong> <span class="active">Active now</span></p>
+        </div>
+        <a href="t.me/bahijkece" target="_blank" class="chat-btn telegram">Contact Now</a>
       </div>
+
+      <!-- WhatsApp -->
+      <div class="chat-card">
+        <div class="chat-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="chat-logo">
+          <div>
+            <h3>WhatsApp <span class="status">● Online</span></h3>
+            <p>Direct messaging</p>
+          </div>
+        </div>
+        <div class="chat-body">
+          <p><strong>Response Time:</strong> <span class="medium">2 - 5 min</span></p>
+          <p><strong>Last Active:</strong> <span class="active">Active now</span></p>
+        </div>
+        <a href="https://wa.me/6287722011556" target="_blank" class="chat-btn whatsapp">Contact Now</a>
+      </div>
+
+<!-- Email -->
+<div class="chat-card">
+  <div class="chat-header">
+    <!-- Inline Gmail-like SVG -->
+ <svg viewBox="0 0 64 64" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" style="width:64px;height:64px;">}   \text{}   \text{<rect x="8" y="16" width="48" height="32" rx="4" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="1.5"/>}    \text{}   \text{<path d="M8 16 L32 34 L56 16 Z" fill="#D93025"/>}    \text{}   \text{<path d="M32 34 L40 28 L48 34 L56 16 L56 48 L8 48 L8 16 L16 34 L32 34 Z" fill="none" stroke="none"/>}    \text{}   \text{<rect x="8" y="16" width="48" height="32" rx="4" fill="none" stroke="#666666" stroke-width="2"/>} {</svg>
+    <div>
+      <h3>Email <span class="status">● Available</span></h3>
+      <p>Send me a direct email message</p>
+    </div>
+  </div>
+  <div class="chat-body">
+    <p><strong>Response Time:</strong> <span class="medium">1 - 3 day</span></p>
+    <p><strong>Last Active:</strong> <span class="active">Today</span></p>
+  </div>
+  <a href="mailto:anrasyauqiybahij@gmail.com" class="chat-btn email">Send Email</a>
+</div>
     </section>
   </div>
 
@@ -240,14 +332,12 @@
       }
 
       const diff = nextBirthday - today;
-
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
       const countdown = document.getElementById("countdown");
-
       countdown.innerHTML = `
         🎂 Next Birthday <b>(26 Juli ${nextBirthday.getFullYear()})</b><br>
         <span class="fade-scale">${days}</span> hari, 
