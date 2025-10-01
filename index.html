@@ -205,9 +205,65 @@
     .chat-btn.whatsapp:hover { background: #16a34a; }
     .chat-btn.email { background: #ea4335; }
     .chat-btn.email:hover { background: #c53030; }
+
+    /* 🔹 Loading Screen */
+    #loading {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+    #loading.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 6px solid transparent;
+      border-top: 6px solid;
+      border-radius: 50%;
+      animation: spin 1.5s linear infinite, rainbow 4s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes rainbow {
+      0%   { border-top-color: #e11d48; }
+      25%  { border-top-color: #f59e0b; }
+      50%  { border-top-color: #22c55e; }
+      75%  { border-top-color: #3b82f6; }
+      100% { border-top-color: #a855f7; }
+    }
+    #profile-pic {
+      width: 100px;
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 1s ease, transform 1s ease;
+      margin-top: 20px;
+    }
+    #loading.show-profile #profile-pic {
+      opacity: 1;
+      transform: scale(1);
+    }
   </style>
 </head>
 <body>
+
+  <!-- 🔹 Loading Screen -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <img id="profile-pic" src="https://files.catbox.moe/is1ybz.jpg" alt="Foto Profil">
+  </div>
+
   <header>
     <h1>Portofoilo Pribadi</h1>
     <p>Mengenal lebih dekat tentang diriku</p>
@@ -227,7 +283,7 @@
   </nav>
 
   <div class="container">
-    <div class="card">
+  <div class="card">
       <h2>Tentang Diriku</h2>
       <p>
         Perkenalkan, nama saya Anra Syauqiy Bahij. Saya adalah seorang pelajar SMP 
@@ -279,7 +335,7 @@
           <p><strong>Response Time:</strong> <span class="fast">&lt; 10 - 30 min</span></p>
           <p><strong>Last Active:</strong> <span class="active">Active now</span></p>
         </div>
-        <a href="https://t.me/bahijkece" target="_blank" class="chat-btn telegram">Contact Now</a>
+        <a href="t.me/bahijkece" target="_blank" class="chat-btn telegram">Contact Now</a>
       </div>
 
       <!-- WhatsApp -->
@@ -316,6 +372,7 @@
 </div>
     </section>
   </div>
+  </div>
 
   <footer>
     <p>© 2025 | Anra Syauqiy Bahij</p>
@@ -326,17 +383,14 @@
     function updateCountdown() {
       const today = new Date();
       let nextBirthday = new Date(today.getFullYear(), 6, 26, 0, 0, 0);
-
       if (today > nextBirthday) {
         nextBirthday.setFullYear(today.getFullYear() + 1);
       }
-
       const diff = nextBirthday - today;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
       const countdown = document.getElementById("countdown");
       countdown.innerHTML = `
         🎂 Next Birthday <b>(26 Juli ${nextBirthday.getFullYear()})</b><br>
@@ -345,7 +399,6 @@
         <span class="fade-scale">${minutes}</span> menit, 
         <span class="fade-scale">${seconds}</span> detik 🎉
       `;
-
       document.querySelectorAll(".fade-scale").forEach(el => {
         el.style.opacity = "0";
         el.style.transform = "scale(0.8)";
@@ -355,9 +408,21 @@
         }, 50);
       });
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // 🔹 Script Loader
+    window.addEventListener("load", () => {
+      const loading = document.getElementById("loading");
+      const spinner = document.querySelector(".spinner");
+      setTimeout(() => {
+        spinner.style.display = "none";           
+        loading.classList.add("show-profile");    
+        setTimeout(() => {
+          loading.classList.add("hidden");
+        }, 1500);
+      }, 2000);
+    });
   </script>
 </body>
-</html>
+                                                                            </html>
